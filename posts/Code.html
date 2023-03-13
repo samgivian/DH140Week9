@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Saman Givian">
+<meta name="dcterms.date" content="2023-03-06">
+<meta name="description" content="Testing Quarto">
+
+<title>myblog – code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">myblog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Code file</h1>
+                  <div>
+        <div class="description">
+          Testing Quarto
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Saman Givian </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 6, 2023</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">March 6, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="datasets" class="level3">
+<h3 class="anchored" data-anchor-id="datasets">Datasets</h3>
+<p>This project explores two different datasets. The main dataset is the social scientists who testified before congress from 1946-2016(with a slight update from 2016), the hearings they testified at, and the characteristics of those hearings, such as the congressional committees that convened them. This dataset was collected with the support NSF grant by Charles Seguin, Thomas V. Maher, and Yongjun Zhang and published on July 19, 2022.</p>
+<p>For the other dataset. I couldn’t find a dataset that has a breakdown of each congress by party and year. But I found a table containing this information on the History, Art &amp; Archives of the US House of Representatives. So I scrapped the website and turned it into a dataset with the help of BeautifulSoup API.</p>
+</section>
+<section id="links-to-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="links-to-datasets">Links to datasets:</h3>
+<ul>
+<li><a href="https://osf.io/e3h98/files/osfstorage">Social scientists congressional testimony</a>.</li>
+<li><a href="https://history.house.gov/Institution/Party-Divisions/Party-Divisions/">Party Divisions of the House of Representatives, 1789 to Present</a>.</li>
+</ul>
+</section>
+<section id="motivation" class="level3">
+<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
+<p>Since the beginning of Covid-19, science and scientists have faced a lot of distrust and attacks from the public and even congress. I was curious to see if congress has historically relied on experience and guidance of experts for help or not. Specifically, during times of crises like the financial crises of 2008 or the stagflation of the 1980s, 2001 terrorist wether congress would ask for help from social scientists and questions when necessary and rely on their judgment and guidance. I also wanted to see whether our government relies more on the help of experts compared to the past(have we become more science and data-driven).</p>
+</section>
+<section id="questions" class="level3">
+<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<ol type="1">
+<li>What type of social scientists does congress mostly invite for testiomny?</li>
+<li>Has the number of social scientists appearning before congress increased?</li>
+<li>Are there any patterns between crises and number of scientists appearning between congress?</li>
+<li>Does congress being dominated by republicans or democrates effect the number of social scientists appearning before congress?</li>
+<li>What type of social scientists appear the most?</li>
+</ol>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>r requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: numpy in /opt/conda/lib/python3.10/site-packages (from -r requirements.txt (line 1)) (1.24.1)
+Requirement already satisfied: matplotlib in /opt/conda/lib/python3.10/site-packages (from -r requirements.txt (line 2)) (3.6.3)
+Requirement already satisfied: pandas in /opt/conda/lib/python3.10/site-packages (from -r requirements.txt (line 3)) (1.5.2)
+Requirement already satisfied: bs4 in /opt/conda/lib/python3.10/site-packages (from -r requirements.txt (line 4)) (0.0.1)
+Requirement already satisfied: requests in /opt/conda/lib/python3.10/site-packages (from -r requirements.txt (line 5)) (2.28.2)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (1.0.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (1.4.4)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (3.0.9)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (4.38.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (23.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (9.4.0)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (0.11.0)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;-r requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/conda/lib/python3.10/site-packages (from pandas-&gt;-r requirements.txt (line 3)) (2022.7)
+Requirement already satisfied: beautifulsoup4 in /opt/conda/lib/python3.10/site-packages (from bs4-&gt;-r requirements.txt (line 4)) (4.11.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests-&gt;-r requirements.txt (line 5)) (2022.12.7)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests-&gt;-r requirements.txt (line 5)) (1.26.14)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/lib/python3.10/site-packages (from requests-&gt;-r requirements.txt (line 5)) (3.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/conda/lib/python3.10/site-packages (from requests-&gt;-r requirements.txt (line 5)) (3.0.1)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;-r requirements.txt (line 2)) (1.16.0)
+Requirement already satisfied: soupsieve&gt;1.2 in /opt/conda/lib/python3.10/site-packages (from beautifulsoup4-&gt;bs4-&gt;-r requirements.txt (line 4)) (2.3.2.post1)
+Note: you may need to restart the kernel to use updated packages.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Getting the first Dataset - social science congressional testimony</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_testimony <span class="op">=</span> pd.read_csv(<span class="st">'https://osf.io/download/asdp8/'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df_testimony.to_csv(<span class="st">'SocialScientistsTestiomonyDataset.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_testimony.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>hearing_id</th>
+      <th>year</th>
+      <th>date_begin</th>
+      <th>date_end</th>
+      <th>witness_name</th>
+      <th>witness_affiliation</th>
+      <th>discipline1</th>
+      <th>discipline2</th>
+      <th>discipline3</th>
+      <th>...</th>
+      <th>thinktank1</th>
+      <th>thinktank2</th>
+      <th>full_committee1</th>
+      <th>sub_committee1</th>
+      <th>full_committee2</th>
+      <th>sub_committee2</th>
+      <th>title_description</th>
+      <th>filter</th>
+      <th>HID</th>
+      <th>univ_aff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>HRG-1946-SAP-0010</td>
+      <td>1946</td>
+      <td>May 8, 1946</td>
+      <td>Jun. 3, 1946</td>
+      <td>howard grieves</td>
+      <td>chief economist, census bur</td>
+      <td>Economist</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>committee on appropriations. senate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>departments of state, justice, commerce, and t...</td>
+      <td>1</td>
+      <td>20171</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>HRG-1947-SAP-0013</td>
+      <td>1947</td>
+      <td>May 26, 1947</td>
+      <td>Jun. 16, 1947</td>
+      <td>philip hauser</td>
+      <td>dep dir, bur of census</td>
+      <td>Sociologist</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>committee on appropriations. senate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>departments of state, justice, commerce, and t...</td>
+      <td>1</td>
+      <td>20655</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>HRG-1947-MMF-0018</td>
+      <td>1947</td>
+      <td>Jun. 27, 1947</td>
+      <td>Jul. 16, 1947</td>
+      <td>j. ely</td>
+      <td>chief, foreign trade div, bur of census, comme...</td>
+      <td>Economist</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>committee on merchant marine and fisheries. house</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>use of american-owned tankers transporting gas...</td>
+      <td>1</td>
+      <td>21081</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>HRG-1948-EXD-0008</td>
+      <td>1948</td>
+      <td>Mar. 24, 1948</td>
+      <td>Apr. 15, 1948</td>
+      <td>j. ely</td>
+      <td>chief, foreign trade div, census bur, commerce...</td>
+      <td>Economist</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>committee on expenditures in executive departm...</td>
+      <td>subcommittee on surplus property</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>investigation, disposition of surplus property...</td>
+      <td>1</td>
+      <td>21584</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>HRG-1949-SAP-0018</td>
+      <td>1949</td>
+      <td>Aug. 31, 1949</td>
+      <td>Sep. 15, 1949</td>
+      <td>philip hauser</td>
+      <td>act dir, bur of census</td>
+      <td>Sociologist</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>committee on appropriations. senate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>supplemental appropriation bill for 1950</td>
+      <td>1</td>
+      <td>22017</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">'https://history.house.gov/Institution/Party-Divisions/Party-Divisions/'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>html_string <span class="op">=</span> response.text</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>document <span class="op">=</span> BeautifulSoup(html_string, <span class="st">"html.parser"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Table Header</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>columns_headers <span class="op">=</span> []</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> document.find(<span class="st">'table'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>table_header <span class="op">=</span> table.find(<span class="st">"thead"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> header <span class="kw">in</span> table_header.find_all(<span class="st">"th"</span>):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    columns_headers.append(header.text.strip())</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(columns_headers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Congress (Years)', '# of House Seats', 'Pro-Administration', 'Anti-Administration', 'Other', 'Del./Res.']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grabbed the headers from website in the table</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>columns_headers[<span class="dv">2</span>] <span class="op">=</span> <span class="st">"Democrats"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>columns_headers[<span class="dv">3</span>] <span class="op">=</span> <span class="st">"Republicans"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>columns_headers.append(<span class="st">"Year"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>columns_headers.append(<span class="st">"Congress"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>columns_headers.append(<span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> []</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Table body</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>table_body <span class="op">=</span> table.find(<span class="st">"tbody"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>add_row_permission <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>congress_counter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> table_body.find_all(<span class="st">"tr"</span>):</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  table_row <span class="op">=</span> []</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  first_cell <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  congress <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  year <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> cell <span class="kw">in</span> row.find_all(<span class="st">"td"</span>):</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(first_cell):</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      first_cell_list <span class="op">=</span> cell.text.strip().split(<span class="st">" "</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>      congress <span class="op">=</span> first_cell_list[<span class="dv">0</span>]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      year <span class="op">=</span> first_cell_list[<span class="dv">1</span>]</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="st">"1945"</span> <span class="kw">in</span> year):</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        add_row_permission <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      first_cell <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(add_row_permission):</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      table_row.append(cell.text.strip())</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(add_row_permission):</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    congress_counter <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    table_row.append(year)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    table_row.append(congress)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    table_row.append(congress_counter)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    data.append(table_row)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown <span class="op">=</span> pd.DataFrame(data, columns<span class="op">=</span>columns_headers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Congress (Years)</th>
+      <th># of House Seats</th>
+      <th>Democrats</th>
+      <th>Republicans</th>
+      <th>Other</th>
+      <th>Del./Res.</th>
+      <th>Year</th>
+      <th>Congress</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>78th (1943–1945)</td>
+      <td>435</td>
+      <td>222</td>
+      <td>209</td>
+      <td>Progressives (2),Farmer-Labor (1),American Lab...</td>
+      <td>2/2</td>
+      <td>(1943–1945)</td>
+      <td>78th</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79th (1945–1947)</td>
+      <td>435</td>
+      <td>244</td>
+      <td>189</td>
+      <td>Progressives (1),American Labor (1)</td>
+      <td>2/2</td>
+      <td>(1945–1947)</td>
+      <td>79th</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>80th (1947–1949)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>246</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1947–1949)</td>
+      <td>80th</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>81st (1949–1951)</td>
+      <td>435</td>
+      <td>263</td>
+      <td>171</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1949–1951)</td>
+      <td>81st</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>82nd (1951–1953)</td>
+      <td>435</td>
+      <td>235</td>
+      <td>199</td>
+      <td>Independent (1)</td>
+      <td>2/1</td>
+      <td>(1951–1953)</td>
+      <td>82nd</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>Index(['Congress (Years)', '# of House Seats', 'Democrats', 'Republicans',
+       'Other', 'Del./Res.', 'Year', 'Congress', 'Count'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.dropna(how<span class="op">=</span><span class="st">'any'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>display(df_congress_breakdown)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Congress (Years)</th>
+      <th># of House Seats</th>
+      <th>Democrats</th>
+      <th>Republicans</th>
+      <th>Other</th>
+      <th>Del./Res.</th>
+      <th>Year</th>
+      <th>Congress</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>78th (1943–1945)</td>
+      <td>435</td>
+      <td>222</td>
+      <td>209</td>
+      <td>Progressives (2),Farmer-Labor (1),American Lab...</td>
+      <td>2/2</td>
+      <td>(1943–1945)</td>
+      <td>78th</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79th (1945–1947)</td>
+      <td>435</td>
+      <td>244</td>
+      <td>189</td>
+      <td>Progressives (1),American Labor (1)</td>
+      <td>2/2</td>
+      <td>(1945–1947)</td>
+      <td>79th</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>80th (1947–1949)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>246</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1947–1949)</td>
+      <td>80th</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>81st (1949–1951)</td>
+      <td>435</td>
+      <td>263</td>
+      <td>171</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1949–1951)</td>
+      <td>81st</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>82nd (1951–1953)</td>
+      <td>435</td>
+      <td>235</td>
+      <td>199</td>
+      <td>Independent (1)</td>
+      <td>2/1</td>
+      <td>(1951–1953)</td>
+      <td>82nd</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>83rd (1953–1955)</td>
+      <td>435</td>
+      <td>213</td>
+      <td>221</td>
+      <td>Independent (1)</td>
+      <td>2/1</td>
+      <td>(1953–1955)</td>
+      <td>83rd</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>84th (1955–1957)</td>
+      <td>435</td>
+      <td>232</td>
+      <td>203</td>
+      <td>0</td>
+      <td>2/1</td>
+      <td>(1955–1957)</td>
+      <td>84th</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>85th (1957–1959)</td>
+      <td>435</td>
+      <td>232</td>
+      <td>203</td>
+      <td>0</td>
+      <td>2/1</td>
+      <td>(1957–1959)</td>
+      <td>85th</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>86th (1959–1961)</td>
+      <td>4363</td>
+      <td>282</td>
+      <td>153</td>
+      <td>Independent Democrat (1)</td>
+      <td>1/1</td>
+      <td>(1959–1961)</td>
+      <td>86th</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>87th (1961–1963)</td>
+      <td>437</td>
+      <td>264</td>
+      <td>173</td>
+      <td>0</td>
+      <td>0/1</td>
+      <td>(1961–1963)</td>
+      <td>87th</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>88th (1963–1965)</td>
+      <td>435</td>
+      <td>258</td>
+      <td>176</td>
+      <td>Independent Democrat (1)</td>
+      <td>0/1</td>
+      <td>(1963–1965)</td>
+      <td>88th</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>89th (1965–1967)</td>
+      <td>435</td>
+      <td>295</td>
+      <td>140</td>
+      <td>0</td>
+      <td>0/1</td>
+      <td>(1965–1967)</td>
+      <td>89th</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>90th (1967–1969)</td>
+      <td>435</td>
+      <td>248</td>
+      <td>187</td>
+      <td>0</td>
+      <td>0/1</td>
+      <td>(1967–1969)</td>
+      <td>90th</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>91st (1969–1971)</td>
+      <td>435</td>
+      <td>243</td>
+      <td>192</td>
+      <td>0</td>
+      <td>0/1</td>
+      <td>(1969–1971)</td>
+      <td>91st</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>92nd (1971–1973)</td>
+      <td>435</td>
+      <td>255</td>
+      <td>180</td>
+      <td>0</td>
+      <td>1/1</td>
+      <td>(1971–1973)</td>
+      <td>92nd</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>93rd (1973–1975)</td>
+      <td>435</td>
+      <td>243</td>
+      <td>192</td>
+      <td>0</td>
+      <td>3/1</td>
+      <td>(1973–1975)</td>
+      <td>93rd</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>94th (1975–1977)</td>
+      <td>435</td>
+      <td>291</td>
+      <td>144</td>
+      <td>0</td>
+      <td>3/1</td>
+      <td>(1975–1977)</td>
+      <td>94th</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>95th (1977–1979)</td>
+      <td>435</td>
+      <td>292</td>
+      <td>143</td>
+      <td>0</td>
+      <td>3/1</td>
+      <td>(1977–1979)</td>
+      <td>95th</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>96th (1979–1981)</td>
+      <td>435</td>
+      <td>278</td>
+      <td>157</td>
+      <td>0</td>
+      <td>3/1</td>
+      <td>(1979–1981)</td>
+      <td>96th</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>97th (1981–1983)</td>
+      <td>435</td>
+      <td>243</td>
+      <td>192</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(1981–1983)</td>
+      <td>97th</td>
+      <td>22.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>98th (1983–1985)</td>
+      <td>435</td>
+      <td>269</td>
+      <td>166</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(1983–1985)</td>
+      <td>98th</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>99th (1985–1987)</td>
+      <td>435</td>
+      <td>254</td>
+      <td>181</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(1985–1987)</td>
+      <td>99th</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>100th (1987–1989)</td>
+      <td>435</td>
+      <td>258</td>
+      <td>177</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(1987–1989)</td>
+      <td>100th</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>101st (1989–1991)</td>
+      <td>435</td>
+      <td>260</td>
+      <td>175</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(1989–1991)</td>
+      <td>101st</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>102nd (1991–1993)</td>
+      <td>435</td>
+      <td>267</td>
+      <td>167</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(1991–1993)</td>
+      <td>102nd</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>103rd (1993–1995)</td>
+      <td>435</td>
+      <td>258</td>
+      <td>176</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(1993–1995)</td>
+      <td>103rd</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>104th (1995–1997)</td>
+      <td>435</td>
+      <td>204</td>
+      <td>230</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(1995–1997)</td>
+      <td>104th</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>105th (1997–1999)</td>
+      <td>435</td>
+      <td>207</td>
+      <td>226</td>
+      <td>Independent (2)</td>
+      <td>4/1</td>
+      <td>(1997–1999)</td>
+      <td>105th</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>106th (1999–2001)</td>
+      <td>435</td>
+      <td>211</td>
+      <td>223</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(1999–2001)</td>
+      <td>106th</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>107th (2001–2003)</td>
+      <td>435</td>
+      <td>212</td>
+      <td>221</td>
+      <td>Independent (2)</td>
+      <td>4/1</td>
+      <td>(2001–2003)</td>
+      <td>107th</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>108th (2003–2005)</td>
+      <td>435</td>
+      <td>205</td>
+      <td>229</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(2003–2005)</td>
+      <td>108th</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>109th (2005–2007)</td>
+      <td>435</td>
+      <td>201</td>
+      <td>233</td>
+      <td>Independent (1)</td>
+      <td>4/1</td>
+      <td>(2005–2007)</td>
+      <td>109th</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>110th (2007–2009)</td>
+      <td>435</td>
+      <td>233</td>
+      <td>202</td>
+      <td>0</td>
+      <td>4/1</td>
+      <td>(2007–2009)</td>
+      <td>110th</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>111th (2009–2011)</td>
+      <td>435</td>
+      <td>257</td>
+      <td>178</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2009–2011)</td>
+      <td>111th</td>
+      <td>37.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>112th (2011–2013)</td>
+      <td>435</td>
+      <td>193</td>
+      <td>242</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2011–2013)</td>
+      <td>112th</td>
+      <td>38.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>113th (2013–2015)</td>
+      <td>435</td>
+      <td>201</td>
+      <td>234</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2013–2015)</td>
+      <td>113th</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>114th (2015–2017)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>247</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2015–2017)</td>
+      <td>114th</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>115th (2017–2019)</td>
+      <td>435</td>
+      <td>194</td>
+      <td>241</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2017–2019)</td>
+      <td>115th</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>116th (2019-2021)</td>
+      <td>4354</td>
+      <td>235</td>
+      <td>199</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2019-2021)</td>
+      <td>116th</td>
+      <td>42.0</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>117th (2021–2023)</td>
+      <td>4355</td>
+      <td>222</td>
+      <td>212</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2021–2023)</td>
+      <td>117th</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>118th (2023–2025)</td>
+      <td>435</td>
+      <td>213</td>
+      <td>222</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2023–2025)</td>
+      <td>118th</td>
+      <td>44.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.to_csv(<span class="st">'CongressDataset.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_congress_breakdown.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Congress (Years)     object
+# of House Seats     object
+Democrats            object
+Republicans          object
+Other                object
+Del./Res.            object
+Year                 object
+Congress             object
+Count               float64
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown[<span class="st">'Democrats'</span>] <span class="op">=</span> df_congress_breakdown[<span class="st">'Democrats'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown[<span class="st">'Republicans'</span>] <span class="op">=</span> df_congress_breakdown[<span class="st">'Republicans'</span>].astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explatory-part" class="level3">
+<h3 class="anchored" data-anchor-id="explatory-part">Explatory part</h3>
+<p>a little bit of it is at the end because I used the combined data set for it.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 1</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_testimony_discipline1 <span class="op">=</span> df_testimony.groupby(<span class="st">'discipline1'</span>)[<span class="st">'discipline1'</span>].count()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>scientists_type <span class="op">=</span> <span class="bu">list</span>(df_testimony_discipline1.keys())</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>scientists_value <span class="op">=</span> <span class="bu">list</span>(df_testimony_discipline1)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scientists_type)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scientists_value)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plotdata <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"Social Scientists count"</span>: scientists_value}, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>scientists_type)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>plotdata.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Anthropologist', 'Economist', 'Political Scientist', 'Psychologist', 'Sociologist']
+[305, 10821, 2482, 970, 904]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>&lt;AxesSubplot: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-17-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 2</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.plot(x <span class="op">=</span> <span class="st">"Congress"</span>,y<span class="op">=</span><span class="st">'Democrats'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f8326b4b400&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-18-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 3</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown.plot(x <span class="op">=</span> <span class="st">"Congress"</span>,y<span class="op">=</span><span class="st">'Republicans'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">''</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f8326807d90&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-19-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 4 - Scientists by year</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_testimony_appearence_count_year <span class="op">=</span> df_testimony.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_testimony_appearence_count_year)</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(df_testimony_appearence_count_year.keys())</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(df_testimony_appearence_count_year)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'g'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 5 - Scientists by year</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>appearence_by_scientists <span class="op">=</span> df_testimony.groupby(<span class="st">'witness_name'</span>)[<span class="st">'witness_name'</span>].count().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(appearence_by_scientists)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>appearence_by_scientists.describe()</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>plt.hist(appearence_by_scientists,bins<span class="op">=</span><span class="dv">50</span>, color<span class="op">=</span><span class="st">'green'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>witness_name
+alan greenspan         189
+alice rivlin           145
+daniel moynihan        142
+douglas holtz-eakin    106
+robert reischauer       97
+                      ... 
+leo pasvolsky            1
+donald redfoot           1
+donald pierce            1
+donald parsons           1
+joseph mulholland        1
+Name: witness_name, Length: 5457, dtype: int64</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>(array([4.795e+03, 3.560e+02, 1.290e+02, 5.000e+01, 2.900e+01, 2.600e+01,
+        1.700e+01, 9.000e+00, 1.100e+01, 9.000e+00, 2.000e+00, 5.000e+00,
+        2.000e+00, 2.000e+00, 1.000e+00, 2.000e+00, 2.000e+00, 2.000e+00,
+        0.000e+00, 0.000e+00, 1.000e+00, 1.000e+00, 0.000e+00, 0.000e+00,
+        1.000e+00, 1.000e+00, 0.000e+00, 1.000e+00, 0.000e+00, 0.000e+00,
+        0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
+        0.000e+00, 1.000e+00, 1.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
+        0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00, 0.000e+00,
+        0.000e+00, 1.000e+00]),
+ array([  1.  ,   4.76,   8.52,  12.28,  16.04,  19.8 ,  23.56,  27.32,
+         31.08,  34.84,  38.6 ,  42.36,  46.12,  49.88,  53.64,  57.4 ,
+         61.16,  64.92,  68.68,  72.44,  76.2 ,  79.96,  83.72,  87.48,
+         91.24,  95.  ,  98.76, 102.52, 106.28, 110.04, 113.8 , 117.56,
+        121.32, 125.08, 128.84, 132.6 , 136.36, 140.12, 143.88, 147.64,
+        151.4 , 155.16, 158.92, 162.68, 166.44, 170.2 , 173.96, 177.72,
+        181.48, 185.24, 189.  ]),
+ &lt;BarContainer object of 50 artists&gt;)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-21-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merging the the two datasets </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>year1 <span class="op">=</span> []</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>year2 <span class="op">=</span> [] </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind <span class="kw">in</span> df_congress_breakdown.index:</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(df_congress_breakdown['Year'][ind])</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="st">"2021"</span> <span class="kw">in</span> df_congress_breakdown[<span class="st">'Year'</span>][ind] <span class="kw">and</span> <span class="st">"2019"</span> <span class="kw">in</span> df_congress_breakdown[<span class="st">'Year'</span>][ind]):</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>        years <span class="op">=</span> df_congress_breakdown[<span class="st">'Year'</span>][ind].split(<span class="st">"-"</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        years <span class="op">=</span> df_congress_breakdown[<span class="st">'Year'</span>][ind].split(<span class="st">"–"</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    year1.append(<span class="bu">int</span>(years[<span class="dv">0</span>][<span class="dv">1</span>:<span class="dv">5</span>]))</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    year2.append(<span class="bu">int</span>(years[<span class="dv">1</span>][<span class="dv">0</span>:<span class="dv">4</span>])<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown[<span class="st">'Year_1'</span>] <span class="op">=</span> year1</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>df_congress_breakdown[<span class="st">'Year_2'</span>] <span class="op">=</span> year2</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>df_testimony[<span class="st">'Year_1'</span>] <span class="op">=</span> df_testimony[<span class="st">"year"</span>]</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>df_testimony[<span class="st">'Year_2'</span>] <span class="op">=</span> df_testimony[<span class="st">"year"</span>]</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>new_df_1 <span class="op">=</span> pd.merge(df_congress_breakdown, df_testimony,  how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>[<span class="st">'Year_1'</span>], right_on <span class="op">=</span> [<span class="st">'Year_1'</span>])</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>new_df_2 <span class="op">=</span> pd.merge(df_congress_breakdown, df_testimony,  how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span>[<span class="st">'Year_2'</span>], right_on <span class="op">=</span> [<span class="st">'Year_2'</span>])</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> [new_df_1, new_df_2]</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>df_merged <span class="op">=</span> pd.concat(frames)</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>display(df_merged)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>df_merged.to_csv(<span class="st">'MergedDataset.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Congress (Years)</th>
+      <th># of House Seats</th>
+      <th>Democrats</th>
+      <th>Republicans</th>
+      <th>Other</th>
+      <th>Del./Res.</th>
+      <th>Year</th>
+      <th>Congress</th>
+      <th>Count</th>
+      <th>Year_1</th>
+      <th>...</th>
+      <th>full_committee2</th>
+      <th>sub_committee2</th>
+      <th>title_description</th>
+      <th>filter</th>
+      <th>HID</th>
+      <th>univ_aff</th>
+      <th>Year_2_y</th>
+      <th>Year_1_x</th>
+      <th>Year_2</th>
+      <th>Year_1_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>78th (1943–1945)</td>
+      <td>435</td>
+      <td>222</td>
+      <td>209</td>
+      <td>Progressives (2),Farmer-Labor (1),American Lab...</td>
+      <td>2/2</td>
+      <td>(1943–1945)</td>
+      <td>78th</td>
+      <td>1.0</td>
+      <td>1943.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79th (1945–1947)</td>
+      <td>435</td>
+      <td>244</td>
+      <td>189</td>
+      <td>Progressives (1),American Labor (1)</td>
+      <td>2/2</td>
+      <td>(1945–1947)</td>
+      <td>79th</td>
+      <td>2.0</td>
+      <td>1945.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>80th (1947–1949)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>246</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1947–1949)</td>
+      <td>80th</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>departments of state, justice, commerce, and t...</td>
+      <td>1.0</td>
+      <td>20655.0</td>
+      <td>0.0</td>
+      <td>1947.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80th (1947–1949)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>246</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1947–1949)</td>
+      <td>80th</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>use of american-owned tankers transporting gas...</td>
+      <td>1.0</td>
+      <td>21081.0</td>
+      <td>0.0</td>
+      <td>1947.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80th (1947–1949)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>246</td>
+      <td>American Labor (1)</td>
+      <td>2/1</td>
+      <td>(1947–1949)</td>
+      <td>80th</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>to provide for the regulation of consumer cred...</td>
+      <td>1.0</td>
+      <td>20635.0</td>
+      <td>0.0</td>
+      <td>1947.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6488</th>
+      <td>114th (2015–2017)</td>
+      <td>435</td>
+      <td>188</td>
+      <td>247</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2015–2017)</td>
+      <td>114th</td>
+      <td>40.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>farm economy</td>
+      <td>1.0</td>
+      <td>118214.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>2015.0</td>
+      <td>2016.0</td>
+      <td>2016.0</td>
+    </tr>
+    <tr>
+      <th>6489</th>
+      <td>115th (2017–2019)</td>
+      <td>435</td>
+      <td>194</td>
+      <td>241</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2017–2019)</td>
+      <td>115th</td>
+      <td>41.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017.0</td>
+      <td>2018.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6490</th>
+      <td>116th (2019-2021)</td>
+      <td>4354</td>
+      <td>235</td>
+      <td>199</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2019-2021)</td>
+      <td>116th</td>
+      <td>42.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019.0</td>
+      <td>2020.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6491</th>
+      <td>117th (2021–2023)</td>
+      <td>4355</td>
+      <td>222</td>
+      <td>212</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2021–2023)</td>
+      <td>117th</td>
+      <td>43.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2021.0</td>
+      <td>2022.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6492</th>
+      <td>118th (2023–2025)</td>
+      <td>435</td>
+      <td>213</td>
+      <td>222</td>
+      <td>0</td>
+      <td>5/1</td>
+      <td>(2023–2025)</td>
+      <td>118th</td>
+      <td>44.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2023.0</td>
+      <td>2024.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>15493 rows × 44 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 1 - number of scient appearenace by congress - year</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>sciencets_by_congress <span class="op">=</span> df_merged.groupby(<span class="st">'Congress'</span>)[<span class="st">'Congress'</span>].count()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sciencets_by_congress)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>x_unsorted <span class="op">=</span> <span class="bu">list</span>(sciencets_by_congress.keys())</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>y_unsorted <span class="op">=</span> <span class="bu">list</span>(sciencets_by_congress)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> x_unsorted[<span class="dv">19</span>:]<span class="op">+</span>x_unsorted[<span class="dv">0</span>:<span class="dv">19</span>]</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y_unsorted[<span class="dv">19</span>:]<span class="op">+</span>y_unsorted[<span class="dv">0</span>:<span class="dv">19</span>]</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">30</span>,<span class="dv">10</span>))</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'g'</span>)</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>sciencets_by_congress <span class="op">=</span> df_merged.groupby(<span class="st">'Year'</span>)[<span class="st">'Year'</span>].count()</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(sciencets_by_congress.keys())</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(sciencets_by_congress)</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">55</span>,<span class="dv">20</span>))</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'g'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Congress
+100th    554
+101st    684
+102nd    715
+103rd    544
+104th    593
+105th    532
+106th    441
+107th    395
+108th    371
+109th    390
+110th    541
+111th    499
+112th    438
+113th    383
+114th    332
+115th      2
+116th      2
+117th      2
+118th      2
+78th       2
+79th      31
+80th     110
+81st     151
+82nd     138
+83rd     129
+84th     263
+85th     339
+86th     339
+87th     281
+88th     260
+89th     320
+90th     431
+91st     412
+92nd     289
+93rd     385
+94th     657
+95th     702
+96th     700
+97th     799
+98th     701
+99th     634
+Name: Congress, dtype: int64</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-24-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 2 - number of scientists appearenace by democrate vs republican dominated congress</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df_democrateDominatedCongress <span class="op">=</span> df_merged[df_merged[<span class="st">"Democrats"</span>]<span class="op">&gt;</span>df_merged[<span class="st">"Republicans"</span>]]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(len(df_democrateDominatedCongress))</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>df_republicanDominatedCongress <span class="op">=</span> df_merged[df_merged[<span class="st">"Republicans"</span>]<span class="op">&gt;</span>df_merged[<span class="st">"Democrats"</span>]]</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#print(len(df_republicanDominatedCongress))</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>df_democrateDominatedCongress_count <span class="op">=</span> df_congress_breakdown[df_congress_breakdown[<span class="st">"Democrats"</span>]<span class="op">&gt;</span>df_congress_breakdown[<span class="st">"Republicans"</span>]]</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>df_republicanDominatedCongress_count <span class="op">=</span> df_congress_breakdown[df_congress_breakdown[<span class="st">"Republicans"</span>]<span class="op">&gt;</span>df_congress_breakdown[<span class="st">"Democrats"</span>]]</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df_democrateDominatedCongress_count))</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df_republicanDominatedCongress_count))</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="bu">len</span>(df_democrateDominatedCongress)<span class="op">/</span><span class="bu">len</span>(df_democrateDominatedCongress_count), </span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>              <span class="bu">len</span>(df_republicanDominatedCongress)<span class="op">/</span><span class="bu">len</span>(df_republicanDominatedCongress_count)])</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>mylabels <span class="op">=</span> [<span class="st">"Democrate domiated"</span>, <span class="st">"Republican domiated"</span>]</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>plt.pie(y, labels <span class="op">=</span> mylabels)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>28
+13</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_merged["discipline1"].unqiue())</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>scientist_type <span class="op">=</span> df_merged[<span class="st">'discipline1'</span>].unique()</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scientist_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[nan 'Sociologist' 'Economist' 'Political Scientist' 'Psychologist'
+ 'Anthropologist']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 3 - Different types of scoial  scientist  appearenace by year</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>df_sociologist <span class="op">=</span> df_merged[df_merged[<span class="st">"discipline1"</span>] <span class="op">==</span> <span class="st">"Sociologist"</span>]</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>sociologist_by_year <span class="op">=</span> df_sociologist.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(sociologist_by_year.keys())</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(sociologist_by_year)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">35</span>,<span class="dv">30</span>))</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df_economicist <span class="op">=</span> df_merged[df_merged[<span class="st">"discipline1"</span>] <span class="op">==</span> <span class="st">"Economist"</span>]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>economicist_by_year <span class="op">=</span> df_economicist.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(economicist_by_year.keys())</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(economicist_by_year)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(economicist_by_year)</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(x = x,y=y, linestyle='--', marker='o', color='r', label='')</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">35</span>,<span class="dv">30</span>))</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_political <span class="op">=</span> df_merged[df_merged[<span class="st">"discipline1"</span>] <span class="op">==</span> <span class="st">"Political Scientist"</span>]</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>political_by_year <span class="op">=</span> df_political.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(political_by_year.keys())</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(political_by_year)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">35</span>,<span class="dv">30</span>))</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'g'</span>, label<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df_psychologist <span class="op">=</span> df_merged[df_merged[<span class="st">"discipline1"</span>] <span class="op">==</span> <span class="st">"Psychologist"</span>]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>psychologist_by_year <span class="op">=</span> df_psychologist.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(psychologist_by_year.keys())</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(psychologist_by_year)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">35</span>,<span class="dv">30</span>))</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'c'</span>, label<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_anthropologist <span class="op">=</span> df_merged[df_merged[<span class="st">"discipline1"</span>] <span class="op">==</span> <span class="st">"Anthropologist"</span>]</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>anthropologist_by_year <span class="op">=</span> df_anthropologist.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">list</span>(anthropologist_by_year.keys())</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">list</span>(anthropologist_by_year)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">35</span>,<span class="dv">30</span>))</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'y'</span>, label<span class="op">=</span><span class="st">''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualization 5 - top 50 sceintsis appeared by field - pie chart</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>appearence_by_scientists_top50 <span class="op">=</span> appearence_by_scientists[<span class="dv">0</span>:<span class="dv">50</span>]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(appearence_by_scientists_top50)</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>df_merged[<span class="st">'discipline1'</span>] <span class="op">=</span> df_merged[<span class="st">'discipline1'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>top50scientists_field <span class="op">=</span> {<span class="st">'Sociologist'</span>:<span class="dv">0</span>, <span class="st">'Economist'</span>:<span class="dv">0</span>, <span class="st">'Political Scientist'</span>:<span class="dv">0</span>,<span class="st">'Psychologist'</span>:<span class="dv">0</span>, <span class="st">'Anthropologist'</span>:<span class="dv">0</span>}</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print(list(appearence_by_scientists_top50.keys()))</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> <span class="bu">list</span>(appearence_by_scientists_top50.keys()):</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    df_name <span class="op">=</span> df_merged[df_merged[<span class="st">"witness_name"</span>] <span class="op">==</span> name]</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(df_name["discipline1"],df_name["witness_name"])</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>    discipline <span class="op">=</span> df_name.iloc[<span class="dv">0</span>][<span class="st">"discipline1"</span>]</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>    top50scientists_field[discipline] <span class="op">=</span>  top50scientists_field[discipline]<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> top50scientists_field.keys()</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> top50scientists_field.values()</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>plt.bar(x, y, color <span class="op">=</span><span class="st">'maroon'</span>,</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>&lt;BarContainer object of 5 artists&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is also part of </span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>scientists_by_year <span class="op">=</span> df_merged.groupby(<span class="st">'year'</span>)[<span class="st">'year'</span>].count()</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>scientists_by_year.plot(kind<span class="op">=</span><span class="st">'box'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>&lt;AxesSubplot: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Code_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean: "</span><span class="op">+</span> <span class="bu">str</span>(scientists_by_year.mean()))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Median: "</span><span class="op">+</span> <span class="bu">str</span>(scientists_by_year.median()))</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Standard deviation: "</span><span class="op">+</span> <span class="bu">str</span>(scientists_by_year.std()))</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max: "</span><span class="op">+</span> <span class="bu">str</span>(scientists_by_year.<span class="bu">max</span>()))</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Min: "</span><span class="op">+</span> <span class="bu">str</span>(scientists_by_year.<span class="bu">min</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean: 218.05633802816902
+Median: 202.0
+Standard deviation: 105.5548452327636
+Max: 464
+Min: 30</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
